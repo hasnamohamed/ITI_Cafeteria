@@ -6,7 +6,6 @@ class User{
     public $DB_DATABASE = "";
     public $port ="";
 
-
 function __construct($DB_HOST, $DB_USER,$DB_PASSWORD,$DB_NAME,$PORT=3306 ){
   $this->DB_HOST=$DB_HOST;
   $this->DB_USER=$DB_USER;
@@ -15,7 +14,6 @@ function __construct($DB_HOST, $DB_USER,$DB_PASSWORD,$DB_NAME,$PORT=3306 ){
   $this->port=$PORT;
   
 }
-
 public function connect_to_db(){
     try {
 
@@ -32,7 +30,7 @@ public function connect_to_db(){
 
 }
 
-//============select all=================
+//============select all========================
 public function Selectall($connection,$table){
 try{
 
@@ -73,7 +71,6 @@ public function insertInto($connection,$table,$useremail,$userpassword,$username
 public function deletefromTable( $connection,$table,$id){
 
 try{
-
 $_query= "delete from $table  where id=:id";
                 $stmt = $connection->prepare($_query);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -84,12 +81,10 @@ $_query= "delete from $table  where id=:id";
                     header("Location:datatable.php");
                 }
 
-
 }catch(Exception $e ){
 
 return $e->getMessage();
 }
-
 }
 //================update=========================
 
