@@ -9,8 +9,8 @@ class Connect
             $dsn = 'mysql:dbname=php_project;host=127.0.0.1;port=3306;';
             $db = new PDO($dsn, self::DB_USER, self::DB_PASSWORD);
             $sh = $db->prepare("SHOW TABLES LIKE 'products_orders'");
-           $sh->execute();
-             if ($sh->fetch(PDO::FETCH_ASSOC)) {
+            $sh->execute();
+             if ($sh) {
                 var_dump("Tables exists");
                 die();
              }
@@ -20,6 +20,7 @@ class Connect
                 die();
             }
             return $db;
+            
         } catch (Exception $e) {
             echo $e->getMessage();
         }
