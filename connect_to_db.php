@@ -8,16 +8,19 @@ class Connect
         try {
             $dsn = 'mysql:dbname=php_project;host=127.0.0.1;port=3306;';
             $db = new PDO($dsn, self::DB_USER, self::DB_PASSWORD);
-            $sh = $db->prepare("DESCRIBE `products_orders`");
-            if ($sh->execute()) {
+            $sh = $db->prepare("SHOW TABLES LIKE 'products_orders'");
+            $sh->execute();
+             if ($sh) {
                 var_dump("Tables exists");
                 die();
-            } else {
+             }
+             else {
                 Connect::createTables($db);
                 var_dump("Tables created");
                 die();
             }
             return $db;
+            
         } catch (Exception $e) {
             echo $e->getMessage();
         }
