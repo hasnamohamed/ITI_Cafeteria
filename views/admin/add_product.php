@@ -1,2 +1,2 @@
 <?php
-echo "add product";
+echo "add product";?>
