@@ -12,9 +12,8 @@ function __construct($DB_HOST, $DB_USER,$DB_PASSWORD,$DB_NAME,$PORT=3306 ){
   $this->DB_PASSWORD = $DB_PASSWORD;
   $this->DB_DATABASE=$DB_NAME;
   $this->port=$PORT;
-  
 }
-public function connect_to_db(){
+public function connectto_db(){
     try {
 
         $dsn  = "mysql:host={$this->DB_HOST};port={$this->port};dbname={$this->DB_DATABASE}";
@@ -31,10 +30,9 @@ public function connect_to_db(){
 }
 
 //============select all========================
-public function Selectall($connection,$table){
+public function SelectfromTable($connection,$table){
 try{
-
-    $query = "select * from `$table`";
+    $query = "select id,name,room_id,image,ext from `$table`";
     $select_stmt = $connection->prepare($query);
     $res=$select_stmt->execute();
     $data = $select_stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -111,8 +109,5 @@ public function updatefromTable($id,$connection,$table,$useremail,$userpassword,
     return $e->getMessage();
     }
     }
-
-
-
 }
 ?>

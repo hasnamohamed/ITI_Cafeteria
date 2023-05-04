@@ -6,7 +6,7 @@ class Connect
     static function connect_to_db()
     {
         try {
-            $dsn = 'mysql:dbname=php_project;host=127.0.0.1;port=3307;';
+            $dsn = 'mysql:dbname=php_project;host=127.0.0.1;port=3306;';
             $db = new PDO($dsn, self::DB_USER, self::DB_PASSWORD);
             $sh = $db->prepare("SHOW TABLES LIKE 'products_orders'");
             $sh->execute();
