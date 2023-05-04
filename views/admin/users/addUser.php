@@ -11,12 +11,10 @@ echo "<div class='container'> ";
 
 $useremail = $_POST["email"];
 $userpassword = $_POST["password"];
-$name = $_POST["name"];
+$username = $_POST["name"];
 $userroom =$_POST["room"];
 $userext = $_POST["ext"];
 $useriden =$_POST["iden"];
-
-
 
 $errors =[];
 
@@ -44,7 +42,7 @@ if(empty($userpassword) and isset($userpassword)){
 else{
     $formdata["password"]= $userpassword;
 }
-if(empty($name) and isset($name)){
+if(empty($username) and isset($username)){
     $errors['name']='Name required';
 }
 
@@ -64,7 +62,7 @@ if($errors){
 
         $database=new userController("localhost", "root","","php_project");
 
-        $db=$database->connect_to_db();
+        $db=$database->connectto_db();
 
         $id = time();
 
@@ -89,10 +87,9 @@ if($errors){
 
             }
         }
-        $data=$database->insertInto($db,"users",$useremail,$userpassword,$$name, $userroom,$useriden,$userext,$image_new_name);
 
+        $data=$database->insertInto($db,"users",$useremail,$userpassword,$username, $userroom,$useriden,$userext,$image_new_name);
         header("Location:allUsers.php");
-
         }catch (Exception $e) {
             echo $e->getMessage();
         }
