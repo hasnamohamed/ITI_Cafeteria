@@ -3,7 +3,7 @@ class Connect
 {
     const DB_USER = "root";
     const DB_PASSWORD = "";
-    static function connect_to_db()
+     function connect_to_db()
     {
         try {
             $dsn = 'mysql:dbname=php_project;host=127.0.0.1;port=3306;';
@@ -11,14 +11,8 @@ class Connect
             $sh = $db->prepare("SHOW TABLES LIKE 'products_orders'");
             $sh->execute();
             $exists=$sh->fetch();
-             if ($exists) {
-                var_dump("Tables exists");
-                die();
-             }
-             else {
-                Connect::createTables($db);
-                var_dump("Tables created");
-                die();
+             if (!$exists) {
+                createTables($db);
             }
             return $db;
             

@@ -1,5 +1,5 @@
 <?php
-class User{
+class userController{
     public $DB_HOST = "";
     public  $DB_USER = "";
     public  $DB_PASSWORD = "";

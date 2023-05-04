@@ -1,5 +1,5 @@
 <?php
-include '../../../models/User.php';
+include '../../../Controllers/userController.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -59,10 +59,10 @@ if($errors){
     }
     header($url);
 }else {
-    
+
     try {
 
-        $database=new User("localhost", "root","","php_project");
+        $database=new userController("localhost", "root","","php_project");
 
         $db=$database->connect_to_db();
 
@@ -89,15 +89,15 @@ if($errors){
 
             }
         }
-        $data=$database->insertInto($db,"users",$useremail,$userpassword,$$name, $userroom,$useriden,$userext,$image_new_name); 
-       
+        $data=$database->insertInto($db,"users",$useremail,$userpassword,$$name, $userroom,$useriden,$userext,$image_new_name);
+
         header("Location:allUsers.php");
 
         }catch (Exception $e) {
             echo $e->getMessage();
         }
-    
-    } 
+
+    }
 ?>
 
 
