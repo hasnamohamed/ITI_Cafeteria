@@ -1,5 +1,5 @@
 <?php
-include './models/User.php';
+include '../../../models/User.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -9,22 +9,67 @@ echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstra
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>';
 echo "<div class='container'> ";
 
-$username = $_POST["name"];
 $useremail = $_POST["email"];
+$userpassword = $_POST["password"];
+$name = $_POST["name"];
 $userroom =$_POST["room"];
-$userpassword=$_POST["password"];
 $userext = $_POST["ext"];
 $useriden =$_POST["iden"];
-try{
-    $database=new User("localhost", "root","","php_project");
 
-    $db=$database->connect_to_db();
 
-    if($db){
+
+$errors =[];
+
+$formdata = [];
+
+
+if(empty($useremail) and isset($useremail)){
+    $errors['email']='email required';
+}elseif(!filter_var($useremail,FILTER_VALIDATE_EMAIL)){
+    $errors['email']='email is not valid';
+}
+else{
+    $formdata["email"]= $useremail;
+}
+if(empty($userpassword) and isset($userpassword)){
+
+    $errors['password']='password required';
+}elseif(strlen($userpassword)<=8 ){
+
+    $errors['password']='password must be 8 letters';
+}elseif(preg_match("/[A-Z]/", $userpassword)){
+
+    $errors['password']='can not contain capital letters';
+}
+else{
+    $formdata["password"]= $userpassword;
+}
+if(empty($name) and isset($name)){
+    $errors['name']='Name required';
+}
+
+if($errors){
+    $errors_str= json_encode($errors);
+    var_dump($errors_str);
+    $url="Location:userForm.php?errors={$errors_str}";
+
+    if($formdata){
+        $old_data= json_encode($formdata);
+        $url .="&old={$old_data}";
+    }
+    header($url);
+}else {
+    
+    try {
+
+        $database=new User("localhost", "root","","php_project");
+
+        $db=$database->connect_to_db();
 
         $id = time();
 
         $image_new_name ='';
+
         if(isset($_FILES['image']) and ! empty($_FILES['image']['name'])){
             $imagename= $_FILES["image"]['name'];
             // var_dump($imagename);
@@ -44,16 +89,64 @@ try{
 
             }
         }
+        $data=$database->insertInto($db,"users",$useremail,$userpassword,$$name, $userroom,$useriden,$userext,$image_new_name); 
+       
+        header("Location:allUsers.php");
 
-        $data=$database->insertInto($db,"users",$useremail,$userpassword,$username,$userroom,$useriden,$userext,$image_new_name); 
-         header("Location:allUsers.php");
-    }
-
-}catch(Exception $e){
-    echo $e->getMessage();
-}
-
-
-
-
+        }catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    
+    } 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

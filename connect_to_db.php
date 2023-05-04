@@ -10,7 +10,8 @@ class Connect
             $db = new PDO($dsn, self::DB_USER, self::DB_PASSWORD);
             $sh = $db->prepare("SHOW TABLES LIKE 'products_orders'");
             $sh->execute();
-             if ($sh) {
+            $exists=$sh->fetch();
+             if ($exists) {
                 var_dump("Tables exists");
                 die();
              }
