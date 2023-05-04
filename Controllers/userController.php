@@ -85,7 +85,17 @@ return $e->getMessage();
 }
 }
 //================update=========================
-
+public function login($email,$password)
+{
+    $db=$this->connectto_db();
+    $query = "SELECT * FROM `users` WHERE `email`=:email AND `password` = :password";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":password", $password);
+    $res= $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
 public function updatefromTable($id,$connection,$table,$useremail,$userpassword,$username,$userroom,$useriden,$userext,$image_new_name){
 
     try{
