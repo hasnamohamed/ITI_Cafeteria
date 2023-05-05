@@ -85,13 +85,12 @@ return $e->getMessage();
 }
 }
 //================login =========================
-public function login($email,$password)
+public function login($email)
 {
     $db=$this->connectto_db();
-    $query = "SELECT * FROM `users` WHERE `email`=:email AND `password` = :password";
+    $query = "SELECT * FROM `users` WHERE `email`=:email";
     $stmt = $db->prepare($query);
     $stmt->bindParam(":email", $email);
-    $stmt->bindParam(":password", $password);
     $res= $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;

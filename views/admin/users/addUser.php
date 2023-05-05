@@ -21,6 +21,11 @@ if($useriden=="checked"){
     $useriden=0;
 };
 
+$hashPassword = password_hash($userpassword, PASSWORD_DEFAULT);
+
+// var_dump($hashPassword);
+
+
   $errors =[];
   
   $formdata = [];
@@ -91,7 +96,7 @@ if($errors){
 
             }
         }
-        $data=$database->insertInto($db,"users",$useremail,$userpassword,$username, $userroom,$useriden,$userext,$image_new_name); 
+        $data=$database->insertInto($db,"users",$useremail,$hashPassword,$username, $userroom,$useriden,$userext,$image_new_name); 
         header("Location:allUsers.php");
         }catch (Exception $e) {
             echo $e->getMessage();
