@@ -51,10 +51,10 @@ if (isset($_GET["old"])) {
                         </div>
                     </div>
                     <hr>
-                    <div class="raw">
+                    <div class="row">
                         <label for="cc" class="label col-md-2 control-label" id="l">Password</label>
                         <div class="col-md-10">
-                            <input type="password" id="cc" class="form-control" name='password' value="<?php if (isset($old_data['password'])) echo $old_data['password']; ?>">
+                            <input type="password" class="form-control" name='password' id="cc" value="<?php if (isset($old_data['password'])) echo $old_data['password']; ?>">
                             <span class="text-danger"> <?php if (isset($errors['password'])) echo $errors['password']; ?> </span>
                         </div>
                     </div>
@@ -73,14 +73,9 @@ if (isset($_GET["old"])) {
                     </div>
                     <hr>
                     <div class="row">
-                        <label for="cc" class="label-col-md-2 control-label" id="l">is_Admin</label>
+                        <label for="cc" class="label col-md-2 control-label" id="l">is_Admin</label>
                         <div class="col-md-10">
-                            <div class="mb-3">
-                                <select class="form-control" id="cc">
-                                    <option value="0" id="o">0</option>
-                                    <option value="1" id="o">1</option>
-                                </select>
-                            </div>
+                            <input type="checkbox" id="cc" class="form-control" name='admin' value="checked">
                         </div>
                     </div>
                     <hr>
@@ -98,9 +93,9 @@ if (isset($_GET["old"])) {
                         </div>
                     </div>
                 </div>
-                <hr>
                         <hr>
                         <button class="btn btn-info" type="submit">Add User</button>
+                        <input type="reset" name="reset" value="Reset" class="btn btn-warning">
                     </div>
                 </div>
             </div>

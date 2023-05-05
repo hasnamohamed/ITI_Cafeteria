@@ -45,7 +45,7 @@ try{
 }
 
 }
-//====================insert========================
+//====================insert user========================
 public function insertInto($connection,$table,$useremail,$userpassword,$username,$userroom,$useriden,$userext,$image_new_name){
     try{
     $query="Insert INTO `$table` (`email`,`password`,`name`,`room_id`,`is_admin`,`ext`,`image`) Values(:useremail,:userpassword,:username,:userroom,:useriden,:userext,:userimage)";
@@ -65,7 +65,7 @@ public function insertInto($connection,$table,$useremail,$userpassword,$username
     }
     
     }
-//=====================delete============================
+//=====================delete user============================
 public function deletefromTable( $connection,$table,$id){
 
 try{
@@ -84,7 +84,7 @@ $_query= "delete from $table  where id=:id";
 return $e->getMessage();
 }
 }
-//================update=========================
+//================login =========================
 public function login($email,$password)
 {
     $db=$this->connectto_db();
@@ -96,10 +96,12 @@ public function login($email,$password)
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
-public function updatefromTable($id,$connection,$table,$useremail,$userpassword,$username,$userroom,$useriden,$userext,$image_new_name){
+
+//========================================update user====================
+public function updatefromTable($connection,$id,$table,$useremail,$userpassword,$username,$userroom,$useriden,$userext,$image_new_name){
 
     try{
-     $query = "update $table set `email`=:useremail,`password`=:userpassword,`name`=:username,`room_id`=:userroom,`is_admin`=:useriden,`ext`=:userext,`image`=:userimage  where id=:id ";
+     $query = "update $table set `email`=:useremail,`password`=:userpassword,`name`=:username,`room_id`=:userroom,`is_admin`=:useriden,`ext`=:userext,`image`=:image_new_name where id=:id ";
      $stmt=$connection->prepare($query);
   //    var_dump($query);
   //    var_dump($stmt);
@@ -109,7 +111,7 @@ public function updatefromTable($id,$connection,$table,$useremail,$userpassword,
      $stmt->bindParam(":userroom",$userroom, PDO::PARAM_STR);
      $stmt->bindParam(":useriden",$useriden, PDO::PARAM_STR);
      $stmt->bindParam(":userext",$userext, PDO::PARAM_STR);
-     $stmt->bindParam(":userimage",$image_new_name, PDO::PARAM_STR);
+     $stmt->bindParam(":image_new_name",$image_new_name, PDO::PARAM_STR);
      $stmt->bindParam(':id', $id, PDO::PARAM_INT);
      $stmt->execute();
     

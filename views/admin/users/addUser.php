@@ -1,6 +1,5 @@
 <?php
 include '../../../Controllers/userController.php';
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -14,12 +13,17 @@ $userpassword = $_POST["password"];
 $username = $_POST["name"];
 $userroom =$_POST["room"];
 $userext = $_POST["ext"];
-$useriden =$_POST["iden"];
+$useriden =$_POST["admin"];
 
-$errors =[];
+if($useriden=="checked"){
+    $useriden=1;
+}else{
+    $useriden=0;
+};
 
-$formdata = [];
-
+  $errors =[];
+  
+  $formdata = [];
 
 if(empty($useremail) and isset($useremail)){
     $errors['email']='email required';
@@ -87,14 +91,13 @@ if($errors){
 
             }
         }
-
-        $data=$database->insertInto($db,"users",$useremail,$userpassword,$username, $userroom,$useriden,$userext,$image_new_name);
+        $data=$database->insertInto($db,"users",$useremail,$userpassword,$username, $userroom,$useriden,$userext,$image_new_name); 
         header("Location:allUsers.php");
         }catch (Exception $e) {
             echo $e->getMessage();
         }
-
-    }
+    
+    } 
 ?>
 
 
