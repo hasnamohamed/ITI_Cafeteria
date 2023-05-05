@@ -76,7 +76,7 @@ $_query= "delete from $table  where id=:id";
                 if($stmt->rowCount()){
                     echo "deleted ";
         
-                    header("Location:datatable.php");
+                    header("Location:allUsers.php");
                 }
 
 }catch(Exception $e ){

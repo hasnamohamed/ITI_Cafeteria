@@ -52,14 +52,13 @@ option{
 .btn-info{
     margin-top: 20px;
     font-size: 18px;
-    width:30px; ;
-    margin-left: 80px;
+    width:20%;
     margin-bottom: 20px;
 }
 .btn-warning{
     margin-top: 20px;
-    font-size: 18px;
-    width: 30px; 
+    font-size:10px;
+    width: 20%; 
     margin-bottom: 20px;
 }
 p{
