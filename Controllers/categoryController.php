@@ -35,4 +35,17 @@ class categoryController extends Connect
             echo $e->getMessage();
         }
     }
+
+    public function getCategories(){
+        try {
+            $db= $this->connect_to_db();
+            $query = "select * from category";
+            $select_stmt = $db->prepare($query);
+            $select_stmt->execute();
+            $data = $select_stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }
