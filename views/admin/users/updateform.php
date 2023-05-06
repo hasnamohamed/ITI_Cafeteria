@@ -17,6 +17,7 @@ if (isset($_GET['id'])) {
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $res = $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            // var_dump($row);
             if ($row) {
                 //    var_dump($row);
             } else {
@@ -32,18 +33,16 @@ if (isset($_GET['id'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css ">
-    <link rel="stylesheet" type="text/css" href="js/bootstrap.js ">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css ">
+    <link rel="stylesheet" type="text/css" href="js/bootstrap.js "> -->
     <link rel="stylesheet" type="text/css" href="form.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-
 <body>
     <form action="updateUser.php?id=<?php echo $row['id'] ?>" method="Post" enctype="multipart/form-data">
         <div class="container">
@@ -53,7 +52,7 @@ if (isset($_GET['id'])) {
                 <div class="col-md-5" id="c">
                     <div class="raw">
                         <div class="col-md-6">
-                            <h3 class="text-left" id="h">update <?php echo $row['name']; ?></h3>
+                        <h3 class="text-left" id="h">update <?php echo $row['name']; ?></h3>
                         </div>
                         <div class="col-md-6">
                             <span class="glyphicon glyphicon-pencil " id="gg"></span>
@@ -62,7 +61,7 @@ if (isset($_GET['id'])) {
                         <div class="row">
                             <label class="label-col-md-2 control-label" id="l">Name</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="cc" name="name" placeholder="Name" value="<?php echo $row['name']; ?>">
+                                <input type="text" class="form-control" id="cc" name="name" Placeholder="Name" value="<?php echo $row['name'];?>">
                                 <span class="text-danger"> <?php if (isset($errors['name'])) echo $errors['name']; ?> </span>
                             </div>
                         </div>
@@ -71,21 +70,21 @@ if (isset($_GET['id'])) {
                     <div class="row">
                         <label for="exampleInputEmail1" class="label-col-md-2 control-label" id="l">Email Addresse</label>
                         <div class="col-md-10">
-                            <input type="email" class="form-control" id="cc" value="<?php echo $row['email']; ?>" name='email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                            <input type="email" class="form-control" id="cc"  value="<?php echo $row['email']; ?>" name='email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                             <span class="text-danger"> <?php if (isset($errors['email'])) echo $errors['email']; ?> </span>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
-                        <label for="cc" class="label col-md-2 control-label" id="l">Password</label>
+                        <label for="cc" class="label-col-md-2 control-label" id="l">Password</label>
                         <div class="col-md-10">
-                            <input type="password" id="cc" class="form-control" name='password' value="<?php echo $row['password']; ?>">
+                            <input type="password" class="form-control" id="cc"  value="<?php echo $row['password']; ?>" name='password' aria-describedby="emailHelp" placeholder="password">
                             <span class="text-danger"> <?php if (isset($errors['password'])) echo $errors['password']; ?> </span>
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
+                        <div class="row">
                         <label for="cc" class="label-col-md-2 control-label" id="l">Room Num</label>
                         <div class="col-md-10">
                             <div class="mb-3">
@@ -99,9 +98,9 @@ if (isset($_GET['id'])) {
                     </div>
                     <hr>
                     <div class="row">
-                        <label for="cc" class="label col-md-2 control-label" id="l">is_Admin</label>
+                        <label for="admin" class="label col-md-2 control-label" id="1">is_Admin</label>
                         <div class="col-md-10">
-                            <input type="checkbox" id="cc" class="form-control" name='admin' value="checked">
+                         <input type="checkbox" id="admin" name="admin" value="<?php echo $row['is_admin']; ?>" />
                         </div>
                     </div>
                     <hr>
@@ -111,24 +110,26 @@ if (isset($_GET['id'])) {
                             <input type="number" class="form-control" id="cc" name="ext" value="<?php echo $row['ext']; ?>">
                         </div>
                     </div>
-                    <div class="row">
+                       <div class="row">
                         <label class="label-col-md-2 control-label" id="l"> User image</label>
                         <div class="col-md-10">
                             <br>
-                            <input type="file" name="image" class="form-control  w-100" id="image">
+                            <input type="file" name="image" class="form-control  w-100" id="image" value="<?php echo $row['image']; ?>">
                         </div>
+                      </div>
+                      <br> 
+                    <div class="row">
+                         <button class="btn btn-info" type="submit">Add User</button>
+                         <input type="reset" name="reset" value="Reset" class="btn btn-warning">
                     </div>
+
                 </div>
-                <hr>
-                <button class="btn btn-info" type="submit">Update User</button>
-                <input type="reset" name="reset" value="Reset" class="btn btn-warning">
+  
+                </div>
             </div>
-        </div>
-        </div>
         </div>
         </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
-
 </html>

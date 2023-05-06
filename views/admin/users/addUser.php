@@ -8,17 +8,24 @@ echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstra
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>';
 echo "<div class='container'> ";
 
+var_dump($_REQUEST);
+
+// exit;
 $useremail = $_POST["email"];
 $userpassword = $_POST["password"];
 $username = $_POST["name"];
 $userroom =$_POST["room"];
 $userext = $_POST["ext"];
-$useriden =$_POST["admin"];
+$isAdmin =$_POST["admin"];
 
-if($useriden=="checked"){
+if($isAdmin=="checked"){
+
     $useriden=1;
+
 }else{
-    $useriden=0;
+
+    $isAdmin=0;
+    
 };
 
 $hashPassword = password_hash($userpassword, PASSWORD_DEFAULT);
@@ -96,7 +103,7 @@ if($errors){
 
             }
         }
-        $data=$database->insertInto($db,"users",$useremail,$hashPassword,$username, $userroom,$useriden,$userext,$image_new_name); 
+        $data=$database->insertInto($db,"users",$useremail,$hashPassword,$username, $userroom,$isAdmin,$userext,$image_new_name); 
         header("Location:allUsers.php");
         }catch (Exception $e) {
             echo $e->getMessage();

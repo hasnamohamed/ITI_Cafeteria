@@ -31,7 +31,8 @@ try {
             echo "<td> {$row['room_id']} </td>";
             echo "<td> {$row['ext']} </td>";
             echo "<td> <img width='100' height='75' src='{$row['image']}'></td>";
-            echo " <td> <a href='updateform.php?id={$row['id']}' class='btn btn-warning'> Edit </a> <a href='deleteUser.php?id={$row['id']}' class='btn btn-danger'> Delete </a> </td>";
+            echo " <td> <a href='updateform.php?id={$row['id']}' class='btn btn-warning'> Edit </a>
+             <a href='deleteUser.php?id={$row['id']}' class='btn btn-danger'> Delete </a> </td>";
             echo "</tr>";
             echo "</tbody>";
         }

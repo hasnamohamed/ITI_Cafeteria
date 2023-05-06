@@ -1,4 +1,5 @@
 <?php
+
 include '../../../Controllers/userController.php';
 
 ini_set('display_errors', 1);
@@ -17,14 +18,18 @@ $userpassword = $_POST["password"];
 $username = $_POST["name"];
 $userroom =$_POST["room"];
 $userext = $_POST["ext"];
-$useriden =$_POST["admin"];
+$userAdmin =$_POST["admin"];
 
-if($useriden=="checked"){
-    $useriden=1;
+// exit;
+if($userAdmin=="checked"){
+    $userAdmin=1;
 }else{
-    $useriden=0;
+    $userAdmin=0;
 };
-// var_dump($useriden);
+// var_dump($userAdmin);
+
+$hashedPassword = password_hash($userpassword, PASSWORD_DEFAULT);
+
 $errors =[];
 $formdata = [];
 
@@ -95,15 +100,20 @@ try{
                     // var_dump($uploaded);
                 } catch (Exception $e){
                     var_dump($e->getMessage());
-                    exit;
                 }
             }
         }
 
-        $data=$database->updatefromTable($db,"users",$id,$useremail,$userpassword,$username,$userroom,$useriden,$userext,$image_new_name);  
-
+        $data=$database->updatefromTable($db,$id,"users",$useremail,$hashedPassword,$username,$userroom,$userAdmin,$userext,$image_new_name);
         var_dump($data);
-            // header("Location:allUsers.php");
+
+        if($data){
+             // echo"updated";
+        }else{
+            echo"error";
+        }
+       
+        // header("Location:allUsers.php");
     }
 }catch(Exception $e){
     echo $e->getMessage();

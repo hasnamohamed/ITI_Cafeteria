@@ -1,6 +1,7 @@
 <?php
 session_start();
  include "../../Controllers/userController.php";
+
 if (isset($_POST['login'])) {
     $errors=[];
     $email =  $_POST['email'];
@@ -16,7 +17,7 @@ if (isset($_POST['login'])) {
                     $_SESSION['user'] = $row;
                     header("Location:login.php");
                     break;
-                case $row["isadmin"] == 0;
+                case $row["is_admin"] == 0;
                     $_SESSION['user'] = $row;
                     header("Location:login.php");
                     break;
@@ -31,7 +32,9 @@ if (isset($_POST['login'])) {
     }
     
     }else{
-      echo  "password failed";
+
+      echo  "password failed try again";
+
     }
 
    

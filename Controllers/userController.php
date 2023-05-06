@@ -97,24 +97,36 @@ public function login($email)
 }
 
 //========================================update user====================
-public function updatefromTable($connection,$id,$table,$useremail,$userpassword,$username,$userroom,$useriden,$userext,$image_new_name){
-
+public function updatefromTable($connection,$id,$table,$useremail,$userpassword,$username,$userroom,$useradmin,$userext,$image_new_name){
     try{
-     $query = "update $table set `email`=:useremail,`password`=:userpassword,`name`=:username,`room_id`=:userroom,`is_admin`=:useriden,`ext`=:userext,`image`=:image_new_name where id=:id ";
+     $query = "update $table set `email`=:useremail,`password`=:userpassword,`name`=:username,`room_id`=:userroom,`is_admin`=:useradmin,`ext`=:userext,`image`=:image_new_name where `id`=:id";
      $stmt=$connection->prepare($query);
-  //    var_dump($query);
+    //  var_dump($query);
   //    var_dump($stmt);
      $stmt->bindParam(":useremail", $useremail, PDO::PARAM_STR);
      $stmt->bindParam(":userpassword", $userpassword, PDO::PARAM_STR);
      $stmt->bindParam(":username",$username, PDO::PARAM_STR);
-     $stmt->bindParam(":userroom",$userroom, PDO::PARAM_STR);
-     $stmt->bindParam(":useriden",$useriden, PDO::PARAM_STR);
-     $stmt->bindParam(":userext",$userext, PDO::PARAM_STR);
+     $stmt->bindParam(":userroom",$userroom, PDO::PARAM_INT);
+     $stmt->bindParam(":useradmin",$useradmin, PDO::PARAM_INT);
+     $stmt->bindParam(":userext",$userext, PDO::PARAM_INT);
      $stmt->bindParam(":image_new_name",$image_new_name, PDO::PARAM_STR);
      $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+    //  $data=$stmt->execute();
      $stmt->execute();
-    
-    
+    //  var_dump($data);
+    //  exit;
+     if($stmt->rowCount()){
+
+        // var_dump($stmt->rowCount());
+        echo "updated ";
+        die();
+
+        // header("Location:allUsers.php");
+    }else{
+        echo "not updated";
+        die();
+    }
     }catch(Exception $e ){
     
     return $e->getMessage();
