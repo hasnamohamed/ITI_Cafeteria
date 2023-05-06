@@ -19,13 +19,9 @@ $userext = $_POST["ext"];
 $isAdmin =$_POST["admin"];
 
 if($isAdmin=="checked"){
-
-    $useriden=1;
-
+    $isAdmin=1;
 }else{
-
-    $isAdmin=0;
-    
+    $isAdmin=0; 
 };
 
 $hashPassword = password_hash($userpassword, PASSWORD_DEFAULT);

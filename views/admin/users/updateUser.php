@@ -10,7 +10,7 @@ echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstra
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>';
 echo "<div class='container'> ";
 
- var_dump($_REQUEST);
+//  var_dump($_REQUEST);
 
 $id= $_GET['id'];
 $useremail = $_POST["email"];
@@ -18,18 +18,9 @@ $userpassword = $_POST["password"];
 $username = $_POST["name"];
 $userroom =$_POST["room"];
 $userext = $_POST["ext"];
-$userAdmin =$_POST["admin"];
+$isAdmin =$_POST["admin"];
 
 // exit;
-if($userAdmin=="checked"){
-    $userAdmin=1;
-}else{
-    $userAdmin=0;
-};
-// var_dump($userAdmin);
-
-$hashedPassword = password_hash($userpassword, PASSWORD_DEFAULT);
-
 $errors =[];
 $formdata = [];
 
@@ -104,16 +95,16 @@ try{
             }
         }
 
-        $data=$database->updatefromTable($db,$id,"users",$useremail,$hashedPassword,$username,$userroom,$userAdmin,$userext,$image_new_name);
-        var_dump($data);
-
-        if($data){
-             // echo"updated";
+        if($isAdmin=="checked"){
+            $isAdmin=1;
         }else{
-            echo"error";
-        }
-       
-        // header("Location:allUsers.php");
+            $isAdmin=0; 
+        };
+        
+        $hashedPassword = password_hash($userpassword, PASSWORD_DEFAULT);
+
+        $data=$database->updatefromTable($db,$id,"users",$useremail,$hashedPassword,$username,$userroom,$isAdmin,$userext,$image_new_name);
+        // var_dump($data)
     }
 }catch(Exception $e){
     echo $e->getMessage();

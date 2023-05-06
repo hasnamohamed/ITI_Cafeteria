@@ -96,7 +96,7 @@ try {
                     <div class="row">
                         <label for="admin" class="label col-md-2 control-label" id="1">is_Admin</label>
                         <div class="col-md-10">
-                            <input type="checkbox" id="admin" name="admin" value="checked" />
+                            <input type="checkbox" id="admin" name="admin" value="checked"/>
                         </div>
                     </div>
                     <hr>
