@@ -84,7 +84,7 @@ try{
             $tmp_name = $_FILES['image']['tmp_name'];
             $ext = pathinfo($imagename)['extension'];
             // var_dump($ext);
-            $image_new_name = "images/{$heba}.{$ext}";
+            $image_new_name = "../../../public/images/{$id}.{$ext}";
             if (in_array($ext,['png', 'jpg'])){
                 try{
                     $uploaded = move_uploaded_file($tmp_name,"$image_new_name");
@@ -93,6 +93,8 @@ try{
                     var_dump($e->getMessage());
                 }
             }
+        }else{
+            $image_new_name="../../../public/images/default.jpg";
         }
 
         if($isAdmin=="checked"){
@@ -100,7 +102,7 @@ try{
         }else{
             $isAdmin=0; 
         };
-        
+
         $hashedPassword = password_hash($userpassword, PASSWORD_DEFAULT);
 
         $data=$database->updatefromTable($db,$id,"users",$useremail,$hashedPassword,$username,$userroom,$isAdmin,$userext,$image_new_name);

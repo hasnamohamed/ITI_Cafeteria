@@ -18,17 +18,6 @@ $userroom =$_POST["room"];
 $userext = $_POST["ext"];
 $isAdmin =$_POST["admin"];
 
-if($isAdmin=="checked"){
-    $isAdmin=1;
-}else{
-    $isAdmin=0; 
-};
-
-$hashPassword = password_hash($userpassword, PASSWORD_DEFAULT);
-
-// var_dump($hashPassword);
-
-
   $errors =[];
   
   $formdata = [];
@@ -86,7 +75,7 @@ if($errors){
             $tmp_name = $_FILES['image']['tmp_name'];
             $ext = pathinfo($imagename)['extension'];
             // var_dump($ext);
-            $image_new_name = "images/{$id}.{$ext}";
+            $image_new_name = "../../../public/images/{$id}.{$ext}";
             if (in_array($ext,['png', 'jpg'])){
                 try{
                     $uploaded = move_uploaded_file($tmp_name,"$image_new_name");
@@ -96,9 +85,20 @@ if($errors){
                     exit;
 
                 }
-
             }
+        }else{
+            $image_new_name="../../../public/images/default.jpg";
         }
+        if($isAdmin=="checked"){
+            $isAdmin=1;
+        }else{
+            $isAdmin=0; 
+        };
+        
+        $hashPassword = password_hash($userpassword, PASSWORD_DEFAULT);
+        
+        // var_dump($hashPassword);
+
         $data=$database->insertInto($db,"users",$useremail,$hashPassword,$username, $userroom,$isAdmin,$userext,$image_new_name); 
         header("Location:allUsers.php");
         }catch (Exception $e) {
@@ -107,7 +107,7 @@ if($errors){
     
     } 
 ?>
-
+<img src="../../../public/images/default.jpg"
 
 
 

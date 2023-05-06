@@ -3,7 +3,7 @@
     padding: 0px;
   }
   body{
-      background-image: url(images/pexels-tatiana-syrikova-3975590.jpg); 
+      background-image: url(../../../public/images/cofee.jpg); 
       background-size: cover; 
       background-attachment: fixed; 
       font-family:  'Times New Roman', Times, serif;
