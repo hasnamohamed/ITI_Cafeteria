@@ -12,7 +12,7 @@ class Connect
             $sh->execute();
             $exists=$sh->fetch();
              if (!$exists) {
-                createTables($db);
+              Connect::createTables($db);
             }
             return $db;
             

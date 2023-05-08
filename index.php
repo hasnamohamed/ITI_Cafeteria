@@ -11,3 +11,5 @@ $db=$obj->connect_to_db();
 // else{
 //     echo "connection failed";
 // }
+?>
+hasnaaaaaa
