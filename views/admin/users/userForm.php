@@ -14,7 +14,7 @@ try {
         $select_query = "Select* from room_num";
         $stmt = $db->prepare($select_query);
         $res = $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 } catch (Exception $e) {
     echo $e->getMessage();
@@ -82,12 +82,11 @@ try {
                         <div class="col-md-10">
                             <div class="mb-3">
                                 <select class="form-control" id="cc" name="room">
-                                    <?php 
-                                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                                     foreach ($row as $value) {
-                                        ?>
-                                        <option value="<?php echo (string)$value['number'];?>" id="o"><?php echo "{$value}";?></option>
-                                        <?php }} ?>
+                                <?php
+                                    foreach ($row as $value) {
+                                        echo "<option value='{$value['id']}'>{$value['number']}</option>";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>

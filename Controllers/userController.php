@@ -119,10 +119,9 @@ public function updatefromTable($connection,$id,$table,$useremail,$userpassword,
      if($stmt->rowCount()){
 
         // var_dump($stmt->rowCount());
-        echo "updated ";
+        header("Location:allUsers.php");
+        
         die();
-
-        // header("Location:allUsers.php");
     }else{
         echo "not updated";
         die();

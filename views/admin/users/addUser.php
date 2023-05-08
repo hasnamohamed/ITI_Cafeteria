@@ -8,7 +8,7 @@ echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstra
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>';
 echo "<div class='container'> ";
 
-var_dump($_REQUEST);
+// var_dump($_REQUEST);
 
 // exit;
 $useremail = $_POST["email"];
@@ -17,21 +17,6 @@ $username = $_POST["name"];
 $userroom =$_POST["room"];
 $userext = $_POST["ext"];
 $isAdmin =$_POST["admin"];
-
-if($isAdmin=="checked"){
-
-    $useriden=1;
-
-}else{
-
-    $isAdmin=0;
-    
-};
-
-$hashPassword = password_hash($userpassword, PASSWORD_DEFAULT);
-
-// var_dump($hashPassword);
-
 
   $errors =[];
   
@@ -90,7 +75,7 @@ if($errors){
             $tmp_name = $_FILES['image']['tmp_name'];
             $ext = pathinfo($imagename)['extension'];
             // var_dump($ext);
-            $image_new_name = "images/{$id}.{$ext}";
+            $image_new_name = "../../../public/images/{$id}.{$ext}";
             if (in_array($ext,['png', 'jpg'])){
                 try{
                     $uploaded = move_uploaded_file($tmp_name,"$image_new_name");
@@ -100,9 +85,20 @@ if($errors){
                     exit;
 
                 }
-
             }
+        }else{
+            $image_new_name="../../../public/images/default.jpg";
         }
+        if($isAdmin=="checked"){
+            $isAdmin=1;
+        }else{
+            $isAdmin=0; 
+        };
+        
+        $hashPassword = password_hash($userpassword, PASSWORD_DEFAULT);
+        
+        // var_dump($hashPassword);
+
         $data=$database->insertInto($db,"users",$useremail,$hashPassword,$username, $userroom,$isAdmin,$userext,$image_new_name); 
         header("Location:allUsers.php");
         }catch (Exception $e) {
@@ -111,7 +107,7 @@ if($errors){
     
     } 
 ?>
-
+<img src="../../../public/images/default.jpg"
 
 
 

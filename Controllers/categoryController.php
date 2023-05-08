@@ -1,5 +1,5 @@
 <?php
-include  $_SERVER["DOCUMENT_ROOT"]."/php_Clone/ITI_Cafeteria/connect_to_db.php";
+include  $_SERVER["DOCUMENT_ROOT"]."/ITI_Cafeteria/connect_to_db.php";
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
