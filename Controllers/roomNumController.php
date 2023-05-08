@@ -25,9 +25,7 @@ class roomNumController
             echo $e->getMessage();
         }
     }
-
-
-    //============select all========================
+    //============selectall========================
     public function SelectfromTable($connection, $table)
     {
         try {
@@ -39,7 +37,6 @@ class roomNumController
             echo $e->getMessage();
         }
     }
-
     //====================insert========================
     public function insertInto($connection, $table, $number)
     {
