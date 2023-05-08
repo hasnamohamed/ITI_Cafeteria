@@ -51,7 +51,7 @@ if($errors){
     $obj=new productController();
     $res=$obj->creatProduct($image_new_name, $_POST["name"],$_POST["cat_id"], $_POST["price"],$available);
     if($res==true)
-        header('Location:add_product.php');
+        header('Location:all_product.php');
     else
         echo $res;
 }
