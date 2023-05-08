@@ -16,7 +16,7 @@ $id= $_GET['id'];
 $name = $_POST["name"];
 $price = $_POST["price"];
 $cat_id = $_POST["cat_id"];
-$available	 =$_POST["available"];
+$available=$_POST["available"];
 
 try{
     $database=new allProductsController("localhost","root","","php_project");
@@ -55,7 +55,13 @@ try{
         };
         
         $data=$database->updatefromTable($db,$id,"products",$name,$price,$cat_id,$available,$image_new_name);
-        // var_dump($data)
+        if($data){
+
+           header('Location:all_product.php');
+        }
+        else{
+            header('Location:ubdateProduct.php');
+        }
     }
 }catch(Exception $e){
     echo $e->getMessage();

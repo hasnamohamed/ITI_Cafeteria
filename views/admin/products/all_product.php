@@ -32,7 +32,19 @@ try {
             echo "<td> {$row['cat_id']} </td>";
             echo "<td> <img width='100' height='75' src='{$row['image']}'></td>";
             echo " <td> <a href='ubdate.php?id={$row['id']}' class='btn btn-warning'> Edit </a>
-             <a href='deleteProduct.php?id={$row['id']}' class='btn btn-danger'> Delete </a> <a href='updateform.php?id={$row['available']}' class='btn btn-warning'> Available </a> </td>";
+             <a href='deleteProduct.php?id={$row['id']}' class='btn btn-danger'> Delete </a> 
+             <a href='available.php?id={$row['id']}&available={$row['available']}' class='btn btn-warning'>  ";
+             if($row['available']){
+                echo "Unavailable";
+
+             }
+             else{
+                echo " Available";
+             }
+
+             echo   " </a> </td>";
+
+           
             echo "</tr>";
             echo "</tbody>";
         }
