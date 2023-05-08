@@ -83,13 +83,36 @@ public function updatefromTable($connection,$id,$table,$name,$price,$cat_id,$ava
      if($stmt->rowCount()){
 
         // var_dump($stmt->rowCount());
-        echo "updated ";
-        die();
+        return 1;
+       
 
         // header("Location:allUsers.php");
     }else{
-        echo "not updated";
-        die();
+        return 0 ; 
+    }
+    }catch(Exception $e ){
+    
+    return $e->getMessage();
+    }
+  }
+
+  public function updateavailabliaty($connection,$id,$available){
+    try{
+     $query = "update `products` set `available`=:available where `id`=:id"; 
+     $stmt=$connection->prepare($query);  
+     $stmt->bindParam(":available",$available, PDO::PARAM_INT);
+     $stmt->bindParam(":id",$id, PDO::PARAM_INT);
+     $data=$stmt->execute();
+    //  exit;
+     if($stmt->rowCount()){
+
+        // var_dump($stmt->rowCount());
+        return 1;
+       
+
+        // header("Location:allUsers.php");
+    }else{
+        return 0 ; 
     }
     }catch(Exception $e ){
     
@@ -97,6 +120,10 @@ public function updatefromTable($connection,$id,$table,$name,$price,$cat_id,$ava
     }
     }
 }
+
+
+
+
 ?>
 
 
