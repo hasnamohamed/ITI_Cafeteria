@@ -9,7 +9,7 @@ echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstra
 
 echo "
 <h1 style='margin-left:200px;'class='mt-5'>Orders</h1>
-<table class='table table-striped table-bordered table-hover text-center w-75 mt-5'style='margin:auto;>
+<table class='table table-striped table-bordered table-hover text-center w-75 mt-5'style='margin:auto;'>
         <tr class='table-secondary'>
             <th>Order Date</th>
             <th>Name</th>
