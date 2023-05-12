@@ -1,0 +1,75 @@
+form .i {
+
+    width: 5%;
+    height: auto;
+
+}
+
+.btn {
+
+    border-radius: 40px;
+    width: 35%;
+
+}
+
+.f {
+    border-radius: 40px;
+    height: 100%;
+    width: 30%;
+    padding: 20px;
+    margin-left: 888px;
+    
+}
+li{
+    list-style-type: none
+}
+
+.i{
+    margin-left: 1400px; 
+    margin-bottom: 100px;
+}
+.cal{
+    width: 50px;
+}
+.add{
+    width: 50px;
+}
+#te{
+    margin-right: 150px;
+    width:200px;
+}
+.row{
+    margin-right: 230px;
+}
+.t{
+    font-size: xx-large;
+    width: 130px;
+    height: 40px;
+    
+}
+.con{
+   size: 100px;
+   width: 130px;
+   height: 40px;
+   margin-left: 200px; 
+   background-color:cadetblue;
+}
+.tt{
+    margin-right: 60px; 
+}
+#cc{
+    width: 130px;
+    height: 40px;
+    margin-right: -70px; 
+}
+#egp{
+    
+}
+.rr{
+    width: 90px;
+    height: 30px;
+     
+}
+#totalPrice{
+    margin-right: -150px;
+}
