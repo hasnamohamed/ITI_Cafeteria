@@ -1,61 +1,11 @@
-*{
-    margin: 0px;
-    padding: 0px;
-  }
-  body{
-      background-image: url(../../../public/images/cofee.jpg); 
-      background-size: cover; 
-      background-attachment: fixed; 
-      font-family:  'Times New Roman', Times, serif;
-  }
-  h1{
-      font-size: 40px;
-      color: white;
-  }
-  #hh{
-    margin-top: 250px;
-    font-size: 25px;
-    color: white;
-  }
-  #h{
-    font-size: 25px;
-    color: white;
-  }
-#c{
-    margin-top: 80px;
-    box-shadow: -1px 1px 60px 10px black;
-    background: rgb(0,0,0,0.4);
-}
 
-#l{
-
-    font-weight: normal;
-    margin-top: 15px;
-    color: white;
-    font-size: 19px;
-}
-.form-control{
-    background: transparent;
-    border-radius: 0px;
-    border: 0px;
-    border-bottom:1px solid white ;
-    font-size: 10px;
-    margin-top: 15px;
-    height: 40px;
-    color:white ;
-
-}
-
-option{
-    color: gray;
-}
 .btn-info{
     margin-top: 20px;
     font-size: 18px;
     width:20%;
     margin-bottom: 20px;
 }
-.btn-warning{
+.btn-danger{
     margin-top: 20px;
     font-size:10px;
     width: 20%; 

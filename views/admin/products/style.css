@@ -4,10 +4,9 @@
 }
   
 body{  
-    background-image: url(r.jpeg); 
+    background-image: url(pexels-egor-kunovsky-15213280.jpg); 
     background-size: cover; 
     background-attachment: fixed; 
-    margin-right: ;
     font-family:  'Times New Roman', Times, serif;
 }
 h1{
@@ -70,5 +69,5 @@ option{
     margin-bottom: 20px;
 }
 p{
-    color:cyan;
+ color:cyan;
 }
