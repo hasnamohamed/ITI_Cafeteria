@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php
+include '../../../Controllers/allProductsController.php';
+include '../../../Controllers/userController.php';
+$productsController=new allProductsController("localhost", "root","","php_project");
+$userController = new userController("localhost", "root","","php_project");
+$db=$productsController->connectto_db();
+$products = $productsController->SelectfromTable($db);
+$users = $userController->SelectfromTable($db , "users")
+?>
+
+
+
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -95,8 +107,11 @@ font-family: 'Lobster', cursive;font-size:xx-large;"> Add To User </span>
     <div class="row">
                     <div class="col-md-10">
                         <select id="c">
-                            <option id="o">Attar</option>
-                            <option id="o">Mamdoh</option>
+                            <?php
+                            foreach($users as $user){
+                                echo "<option id='o'>"; echo $user["name"]."</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -146,169 +161,19 @@ font-family: 'Lobster', cursive;font-size:xx-large;"> Add To User </span>
             </div>
         </div>
 
-
-        <div class=" d-flex flex-wrap c " style="width: 55%; height: 100% ; background-color:#efd99b; justify-content: end">
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
-            <div class="col-2 d-flex flex-column" style="height: 50px;">
-                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
-                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
-                    <h4>Coffee</h4>
-                    <h4 style="margin-left:10px">$5</h4>
-                </div>
-            </div>
-
-
+        <?php
+        foreach ($products as $product){
+            echo '
+                                        <div class="col-2 d-flex flex-column" style="height: 50px;" >
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="../../../public/images/'; echo $product["image"]. '"  alt="" value="'; echo $product["id"].'">
+                            <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
+                                <h4>'.$product["name"].'</h4>
+                                <h4 style="margin-left:10px">'.$product["price"].'</h4>
+                            </div>
+                              </div>
+                                    ';
+        }
+        ?>
 
 
         </div>
