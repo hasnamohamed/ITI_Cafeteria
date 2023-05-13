@@ -85,14 +85,17 @@
 </nav>
     </section>
     <br>
-    <a class="i"><i class='fa-regular fa-user text-dark  fa-2x '></i> Admin</a>
+    <a class="i" style=" font-family: 'Rubik Gemstones', cursive;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 5px 5px 5px grey ;
+    text-shadow: 5px 5px 5px grey ;"><i class='fa-regular fa-user text-dark  fa-2x '></i> Admin</a>
    
     <span class="y" style="font-family: 'Anton', sans-serif;
-font-family: 'Lobster', cursive;font-size:xx-large;"> Add To User </span>
+font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey;"> Add To User </span>
     <br>
     <br>
 
-    <div class="row">
+    <div class="row" style="">
                     <div class="col-md-10">
                         <select id="c">
                             <option id="o">Attar</option>
@@ -105,7 +108,7 @@ font-family: 'Lobster', cursive;font-size:xx-large;"> Add To User </span>
     <section class="d-flex justify-content-center" style="height: 700px">
 
         <div class="d-flex justify-content-center " style="width: 30%; height: 700px; background-color: white">
-            <div class=" d-flex flex-column align-items-center " style="  background-color:#f8edcd ;   width: 85%; border: 1px solid saddlebrown; border-radius: 10px; ">
+            <div class=" d-flex flex-column align-items-center " style="  background-color:#e9e2d0 ;   width: 85%; border: 1px solid saddlebrown; border-radius: 10px; ">
                 <div class="tt">
                     <br>
                    <span class="t" style=" font-family: 'Rubik Gemstones', cursive;
@@ -147,7 +150,7 @@ font-family: 'Lobster', cursive;font-size:xx-large;"> Add To User </span>
         </div>
 
 
-        <div class=" d-flex flex-wrap c " style="width: 55%; height: 100% ; background-color:#efd99b; justify-content: end">
+        <div class=" d-flex flex-wrap c " style="width: 55%; height: 100% ; background-color:#d3a284; justify-content: end">
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
