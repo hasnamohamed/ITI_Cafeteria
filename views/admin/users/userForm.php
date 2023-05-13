@@ -106,7 +106,7 @@ try {
     padding: 0px;
   }
   body{
-      background-image: url(../../../public/images/cofee.jpg); 
+      background-image: url(../../../public/images/pexels-naim-benjelloun-2287523.jpg); 
       background-size: cover; 
       background-attachment: fixed; 
       font-family:  'Times New Roman', Times, serif;

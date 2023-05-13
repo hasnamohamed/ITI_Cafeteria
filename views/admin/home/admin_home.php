@@ -17,14 +17,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="home_style.css">
-
-
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Lobster&display=swap" rel="stylesheet">
 
 <body>
-
+<style>
+   
+</style>
     <section>
-    <nav  class='navbar navbar-expand-lg 'style='background-color:rgb(139, 108, 69);'>
+    <nav  class='navbar navbar-expand-lg 'style='background-color:#70560d;>
   <div class='w-100 d-flex justify-content-between '>
     <div class='' d-flex justify-content-between'>
       <div>
@@ -79,10 +86,9 @@
     </section>
     <br>
     <a class="i"><i class='fa-regular fa-user text-dark  fa-2x '></i> Admin</a>
-    <span class="search">
-        <input class=" f form-control me-2 bg-light" type="txt" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" aria-label="Search">
-    </span>
-    <span class="y"> Add To User </span>
+   
+    <span class="y" style="font-family: 'Anton', sans-serif;
+font-family: 'Lobster', cursive;font-size:xx-large;"> Add To User </span>
     <br>
     <br>
 
@@ -98,12 +104,18 @@
       
     <section class="d-flex justify-content-center" style="height: 700px">
 
-        <div class="d-flex justify-content-center " style="width: 30%; height: 700px; background-color: aliceblue">
-            <div class=" d-flex flex-column align-items-center " style="  background-color: gray;   width: 85%; border: 1px solid saddlebrown; border-radius: 10px; ">
+        <div class="d-flex justify-content-center " style="width: 30%; height: 700px; background-color: white">
+            <div class=" d-flex flex-column align-items-center " style="  background-color:#f8edcd ;   width: 85%; border: 1px solid saddlebrown; border-radius: 10px; ">
                 <div class="tt">
                     <br>
-                   <span class="t"> Tea </span> <input class="add" type="number" class="cal" name="tea"> <input type="button" value="+"> <span class="t"> or</span> <input type="button" value="-"> <span class="t">EGP</span> <input type="button" value="x" name="add"><br><br>
-                   <span class="t"> Cola </span> <input class="add" type="number" class="cal" name="cola"> <input type="button" value="+"> <span class="t"> or</span> <input type="button" value="-"> <span class="t">EGP</span><input type="button" name="min" value="x">
+                   <span class="t" style=" font-family: 'Rubik Gemstones', cursive;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 5px 5px 5px grey ;
+    text-shadow: 5px 5px 5px grey ;" > Tea </span> <input class="add" type="number" class="cal" name="tea"> <input type="button" value="+"> <span class="t"> or</span> <input type="button" value="-"> <span class="t">EGP</span> <input type="button" value="x" name="add"><br><br>
+                   <span style=" font-family: 'Rubik Gemstones', cursive;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 5px 5px 5px grey ;
+    text-shadow: 5px 5px 5px grey ;"class="t"> Cola </span> <input class="add" type="number" class="cal" name="cola"> <input type="button" value="+"> <span class="t"> or</span> <input type="button" value="-"> <span class="t">EGP</span><input type="button" name="min" value="x">
                 </div>
                 <br><br><br><br>
                 <div>
@@ -135,7 +147,7 @@
         </div>
 
 
-        <div class=" d-flex flex-wrap c " style="width: 55%; height: 100% ; background-color:burlywood; justify-content: end">
+        <div class=" d-flex flex-wrap c " style="width: 55%; height: 100% ; background-color:#efd99b; justify-content: end">
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
