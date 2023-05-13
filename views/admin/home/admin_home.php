@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+include '../../../Controllers/allProductsController.php';
+include '../../../Controllers/userController.php';
+$productsController=new allProductsController("localhost", "root","","php_project");
+$userController = new userController("localhost", "root","","php_project");
+$db=$productsController->connectto_db();
+$products = $productsController->SelectfromTable($db);
+$users = $userController->SelectfromTable($db , "users")
+?>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,10 +34,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lobster&display=swap" rel="stylesheet">
-
 <body>
 <style>
-   
 </style>
     <section>
     <nav  class='navbar navbar-expand-lg 'style='background-color:#70560d;>
@@ -49,7 +56,6 @@
           <li class='nav-item'>
             <a class='nav-link  text-light'>Product</a>
           </li>
-
           <li class='nav-item'>
             <a class='nav-link  text-light' >Users</a>
           </li>
@@ -62,7 +68,6 @@
         </ul>
       </div>
     </div>
-
     <div class='d-flex justify-content align-items-center'>
       <div class='row'>
         <div class='col'>
@@ -89,24 +94,23 @@
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: 5px 5px 5px grey ;
     text-shadow: 5px 5px 5px grey ;"><i class='fa-regular fa-user text-dark  fa-2x '></i> Admin</a>
-   
     <span class="y" style="font-family: 'Anton', sans-serif;
 font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey;"> Add To User </span>
     <br>
     <br>
-
     <div class="row" style="">
                     <div class="col-md-10">
                         <select id="c">
-                            <option id="o">Attar</option>
-                            <option id="o">Mamdoh</option>
+                            <?php
+                            foreach($users as $user){
+                                echo "<option id='o'>"; echo $user["name"]."</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
                 <br>
-      
     <section class="d-flex justify-content-center" style="height: 700px">
-
         <div class="d-flex justify-content-center " style="width: 30%; height: 700px; background-color: white">
             <div class=" d-flex flex-column align-items-center " style="  background-color:#e9e2d0 ;   width: 85%; border: 1px solid saddlebrown; border-radius: 10px; ">
                 <div class="tt">
@@ -124,7 +128,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                 <div>
                    <span class="t"> Notes </span>
                     <textarea class="form-control" id="te" name="note" placeholder=""></textarea>
-
                 </div>
                 <br><br><br>
                 <div class="row">
@@ -148,8 +151,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                 </di>
             </div>
         </div>
-
-
         <div class=" d-flex flex-wrap c " style="width: 55%; height: 100% ; background-color:#d3a284; justify-content: end">
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
@@ -158,7 +159,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -166,8 +166,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -175,8 +173,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -184,8 +180,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -193,8 +187,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -202,8 +194,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -211,8 +201,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -220,8 +208,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -229,8 +215,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -238,8 +222,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png" alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -247,8 +229,6 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
                     <h4 style="margin-left:10px">$5</h4>
                 </div>
             </div>
-
-
             <div class="col-2 d-flex flex-column" style="height: 50px;">
                 <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
                 <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
@@ -313,18 +293,20 @@ font-family: 'Lobster', cursive;font-size:xx-large;text-shadow: 5px 5px 5px grey
 
 
 
-
+        <?php
+        foreach ($products as $product){
+            echo '
+                                        <div class="col-2 d-flex flex-column" style="height: 50px;" >
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="../../../public/images/'; echo $product["image"]. '"  alt="" value="'; echo $product["id"].'">
+                            <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
+                                <h4>'.$product["name"].'</h4>
+                                <h4 style="margin-left:10px">'.$product["price"].'</h4>
+                            </div>
+                              </div>
+                                    ';
+        }
+        ?>
         </div>
-
-
-
-
-
-
-
-
-
-
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
