@@ -10,6 +10,7 @@
     <title>Document</title>
 </head>
 
+</style>
 <body>
     <section>
         <nav class='navbar navbar-expand-lg ' style='background-color:rgb(139, 108, 69);'>
@@ -90,28 +91,32 @@
                         <td>322</td>
                     </tr>
                 </table>
-                <table class='table table-striped table-bordered table-hover text-center w-75 mt-5' style='margin:auto;'>
-                    <tr class=' table-secondary'>
-                    <th scope="col">Order Date</th>
-                    <th scope="col">Amount</th>
-                    </tr>
-                    <tr class='table-secondary'>
-                        <th><button id="1" onclick="addRow(this)">+</button>13/5/2023</th>
-                        <td>100 EGP</td>
-                    </tr>
-                    <tr class='table-secondary'>
-                        <th><button id="2" onclick="addRow(this)">-</button> 12/11/1999</th>
-                        <td>55 EGP</td>
-                    </tr>
-                </table>
-                <textarea>kjugjyfjffffffffffffffffffffffffffffffffffffffff
-                    jdjjjjjjjjjjjjjjjjjjjjjj
-                    oiyhii
-                    
-                </textarea>
-                        
-                    
+<table class='table table-striped table-bordered table-hover text-center w-75 mt-5'style='margin:auto;'>
+        <tr class='table-secondary'>
+            <th>Order Date</th>
+            <th>Amount</th>
+        </tr>
+        <tr class='table-secondary'>
+        <th><button id="1" onclick="addRow(this)">+</button> 2018/02/02 03:30 Am</th>
+                        <td>122 EGP</td>
+        </tr>
+        <tr class='table-secondary'>
+        <th><button id="1" onclick="addRow(this)">+</button> 2018/02/02 03:30 Am</th>
+                        <td>122 EGP</td>
+        </tr>
+        <tr class='table-secondary'>
+            <td colspan='5'><br><br><br><h4 style='margin-left:80%;text-align:center;'><div class="col-2 d-flex flex-column" style="height: 50px;">
+                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
+                <div class="d-flex col-8 justify-content-center" style="margin-left: 20px; height: 20%">
+                    <h4>Coffee</h4>
+                    <h4 style="margin-left:10px">$5</h4>
+                </div>
+                <div class="col-2 d-flex flex-column" style="height: 50px;">
+                <img class="w-100 rounded-circle mb-3 mb-sm-0" src="coffe.png"  alt="">
                 
+            </div></h4> </td>
+        </tr>
+</table>
             </div>
         </div>
         <script>
