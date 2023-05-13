@@ -11,9 +11,9 @@ include '../navbar/navbar.php';
 echo "
 <h1 style='margin-left:200px;'class='mt-5'>My Orders</h1>
     <div class='d-flex mb-3'>
-        <input type='text' placeholder='Date From' name='title' class='form-control ' id='title'style='margin-left:200px; margin-right:20px; width:400px; border:4px solid rgb(139, 108, 69);'>
+        <input type='date' placeholder='Date From' name='title' class='form-control ' id='title'style='margin-left:200px; margin-right:20px; width:400px; border:4px solid rgb(139, 108, 69);'>
         <img src='date.jpg' style='width:50px;heught:50px;'>
-        <input type='text' placeholder='Date To' name='title' class='form-control ' id='title' style='width:400px; border:4px solid rgb(139, 108, 69);' >
+        <input type='date' placeholder='Date To' name='title' class='form-control ' id='title' style='width:400px; border:4px solid rgb(139, 108, 69);' >
         <img src='date.jpg' style='width:50px;heught:50px;'>
     </div>
     <table class='table table-striped table-bordered table-hover text-center w-75 mt-5 'style='margin:auto;'>

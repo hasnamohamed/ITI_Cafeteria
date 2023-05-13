@@ -67,11 +67,14 @@
         </nav>
         <br><br>
         <div class="container">
-            <input type="date" name="start" id="">&nbsp;&nbsp;&nbsp;
-            <input type="date" name="end" id="">
-
+            <div class='d-flex mb-3'>
+        <input type='date' placeholder='Date From' name='title' class='form-control ' id='title'style='margin-left:200px; margin-right:20px; width:400px; border:4px solid rgb(139, 108, 69);'>
+        <img src='date.jpg' style='width:50px;height:50px;'>
+        <input type='date' placeholder='Date To' name='title' class='form-control ' id='title' style='width:400px; border:4px solid rgb(139, 108, 69);' >
+        <img src='date.jpg' style='width:50px;height:50px;'>
+    </div>
             <br><br>
-            <select name="user_id">
+            <select name="user_id" style='width:400px; border:4px solid rgb(139, 108, 69); margin-left:200px;'>
                 <option>hasnaa</option><
                 <option>heba</option>
             </select>
@@ -117,6 +120,7 @@
             </div></h4> </td>
         </tr>
 </table>
+
             </div>
         </div>
         <script>
