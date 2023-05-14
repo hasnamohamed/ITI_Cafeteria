@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +8,12 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
+=======
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+>>>>>>> b1b6d8f1abc441cf912ecdc4aa07ffcd2083250f
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
