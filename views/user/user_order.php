@@ -16,9 +16,16 @@ echo "
 <h1 style='margin-left:200px;'class='mt-5'>My Orders</h1>
 <form method='post' action='search.php'>
     <div class='d-flex mb-3'>
+<<<<<<< HEAD
         <input type='date' placeholder='Date From' name='from' class='form-control ' id='title'style='margin-left:200px; margin-right:20px; width:400px; border:4px solid rgb(139, 108, 69);'>
         <input type='date' placeholder='Date To' name='to' class='form-control ' id='title' style='width:400px; border:4px solid rgb(139, 108, 69);' > 
         <input type='submit' class='btn btn-warning' style='width:200px; height:40px;margin-left:5px; ' value='Search'>
+=======
+        <input type='date' placeholder='Date From' name='title' class='form-control ' id='title'style='margin-left:200px; margin-right:20px; width:400px; border:4px solid rgb(139, 108, 69);'>
+        <img src='date.jpg' style='width:50px;heught:50px;'>
+        <input type='date' placeholder='Date To' name='title' class='form-control ' id='title' style='width:400px; border:4px solid rgb(139, 108, 69);' >
+        <img src='date.jpg' style='width:50px;heught:50px;'>
+>>>>>>> 7a92be53667f362abed11ea10e924735751d2b88
     </div>
     </form>
     <table class='table table-striped table-bordered table-hover text-center w-75 mt-5 'style='margin:auto;'>

@@ -1,5 +1,10 @@
+<section>
+   
+
+
 <?php
 include '../../../Controllers/allProductsController.php';
+include '../../navbar/navbar.php';
 
 
 ini_set('display_errors', 1);
@@ -15,25 +20,26 @@ try {
     $db = $database->connectto_db();
     if ($db) {
         $data = $database->SelectfromTable($db, "product");
-        echo "<table class='table table-bordered text-center border-dark'> 
-            <thead class='bg-dark text-white'>
-            <tr> 
+
+        echo "<h1 >All Products</h1>";
+        echo "<table class='table table-striped table-bordered table-hover text-center'> 
+            <tr class='table-secondary'> 
             <th>  Name    </th>  
             <th>  Price   </th> 
             <th>  Cat_id  </th>
             <th>   Image  </th>
             <th>  Actions </th>
-            </tr></thead>";
+            </tr>";
         foreach ($data as $row) {
-            echo "<tbody class='table-light table-striped'>";
-            echo "<tr>";
+            
+            echo "<tr class='table-secondary'>";
             echo "<td> {$row['name']} </td>";
             echo "<td> {$row['price']} </td>";
             echo "<td> {$row['cat_id']} </td>";
             echo "<td> <img width='100' height='75' src='{$row['image']}'></td>";
-            echo " <td> <a href='ubdate.php?id={$row['id']}' class='btn btn-warning'> Edit </a>
+            echo " <td> <a href='ubdate.php?id={$row['id']}' class='btn btn-info'> Edit </a>
              <a href='deleteProduct.php?id={$row['id']}' class='btn btn-danger'> Delete </a> 
-             <a href='available.php?id={$row['id']}&available={$row['available']}' class='btn btn-warning'>  ";
+             <a href='available.php?id={$row['id']}&available={$row['available']}' class='btn btn-primary'>  ";
              if($row['available']){
                 echo "Unavailable";
 
@@ -46,7 +52,7 @@ try {
 
            
             echo "</tr>";
-            echo "</tbody>";
+           
         }
     }
     echo "</table>";
@@ -54,4 +60,4 @@ try {
     echo $e->getMessage();
 }
 ?>
-<a href="add_product.php" class="btn btn-dark">Add new product </a>
+<a href="add_product.php" class="btn btn-success">Add new product </a>

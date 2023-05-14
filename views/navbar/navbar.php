@@ -20,10 +20,10 @@ echo "
             <img src='../../public/images/coffe.png' alt='' class='logo' style='width:50px; height:50px; border-radius:50%; margin-right:20px; margin-left:5px; '/>
           </li>
           <li class='nav-item'>
-            <a class='nav-link  text-light'>Home</a>
+            <a class='nav-link  text-light' >Home</a>
           </li>
           <li class='nav-item'>
-            <a class='nav-link  text-light'>Product</a>
+            <a  class='nav-link  text-light '>Product</a>
           </li>
 
           <li class='nav-item'>
