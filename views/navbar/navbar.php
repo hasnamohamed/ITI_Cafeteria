@@ -1,62 +1,90 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+<head>
+    <meta charset="utf-8">
+    <title>KOPPEE - Coffee Shop HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
 
-echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>';
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-echo "
-<nav  class='navbar navbar-expand-lg 'style='background-color:rgb(139, 108, 69);' >
-  <div class='w-100 d-flex justify-content-between '>
-    <div class='' d-flex justify-content-between'>
-      <div>
-      <a class='navbar-brand' ></a>
-      </div>
-      <div class='collapse navbar-collapse' >
-        <ul class='navbar-nav mr-auto'>
-          
-          <li class='nav-item'>
-            <img src='../../public/images/coffe.png' alt='' class='logo' style='width:50px; height:50px; border-radius:50%; margin-right:20px; margin-left:5px; '/>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link  text-light' >Home</a>
-          </li>
-          <li class='nav-item'>
-            <a  class='nav-link  text-light '>Product</a>
-          </li>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
 
-          <li class='nav-item'>
-            <a class='nav-link  text-light' >Users</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link  text-light'>Manual Order</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link  text-light'>Checks</a>
-          </li>
-        </ul>
-      </div>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 display-4 text-uppercase text-white">KOPPEE</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link ">Product</a>
+                    <a href="service.html" class="nav-item nav-link">Users</a>
+                    <a href="menu.html" class="nav-item nav-link">Manual Order</a>
+                    <a href="service.html" class="nav-item nav-link">Checks</a>
+                    <div class="nav-item dropdown">
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="reservation.html" class="dropdown-item">Reservation</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </div>
+    <!-- Navbar End -->
 
-    <div class='d-flex justify-content align-items-center'>
-      <div class='row'>
-        <div class='col'>
-          <div class='w-100 d-flex justify-content align-items-center'>
-            <img class='logo mx-3 ' src='../../public/images/user-circle-svgrepo-com.svg' style='width:50px; height:50px;' />
-            <a class='text-light text-decoration-none '>Admin</a>
-          </div>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 200px">
+            
         </div>
-      </div>
-      <ul class='navbar-nav mr-auto'>
-        <li class='nav-item'>
-          <i class='fa-regular fa-user text-light'></i>
-        </li>
-        <li class='nav-item'>
-          <a><i class='fontSize mx-3 text-light fa-solid fa-right-from-bracket'></i></a>
-        </li>
-      </ul>
     </div>
-  </div>
-</nav>";
+    <!-- Page Header End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

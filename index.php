@@ -11,5 +11,6 @@ $db=$obj->connect_to_db();
 // else{
 //     echo "connection failed";
 // }
+include './views/navbar/homeindex.php';
 ?>
-hasnaaaaaa
+
