@@ -36,7 +36,45 @@ class Order extends Connect
             return $e->getMessage();
         }
     }
- 
+    public function search($from,$to)
+    {
+        try {
+
+            $db = $this->connect_to_db();
+            if ($db) {
+                
+                // $vanaf = mysql_real_escape_string($from);
+                // $tot = mysql_real_escape_string($to);
+
+                $sel = "SELECT * FROM `php_project`.`orders` WHERE date BETWEEN '$from' AND '$to'";
+                $stmt = $db->prepare($sel);
+                $stmt->execute();
+                $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $data;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+
+    public function cancelOrder($id){
+        try {
+            $db = $this->connect_to_db();
+            if ($db) {
+                $_query= "delete from `php_project`.`orders` where id=:id";
+                $stmt = $db->prepare($_query);
+                $stmt->bindParam(':id',$id, PDO::PARAM_INT);
+                $stmt->execute();
+                if($stmt->rowCount()){
+                    echo "Order deleted";
+                }
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+    }
 
     }
 
